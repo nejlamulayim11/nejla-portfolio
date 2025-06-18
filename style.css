@@ -19,12 +19,12 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 2.8em;
+  font-size: 2.5em;
 }
 
 header p {
   font-weight: 300;
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-top: 10px;
 }
 
@@ -32,26 +32,27 @@ nav ul {
   list-style: none;
   padding: 0;
   margin-top: 20px;
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 nav ul li a {
   color: #ecf0f1;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease;
+  padding: 8px 12px;
+  transition: background 0.3s ease;
+  border-radius: 4px;
 }
 
 nav ul li a:hover {
-  color: #bdc3c7;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Hakkımda Bölümü */
-section#about {
+/* Ortak Section Ayarları */
+section {
   max-width: 900px;
   margin: 30px auto;
   background: white;
@@ -60,7 +61,7 @@ section#about {
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
 }
 
-section#about h2 {
+section h2 {
   border-bottom: 2px solid #3498db;
   padding-bottom: 10px;
   color: #2c3e50;
@@ -68,6 +69,7 @@ section#about h2 {
   margin-bottom: 25px;
 }
 
+/* Hakkımda */
 .about-container {
   display: flex;
   align-items: flex-start;
@@ -84,33 +86,15 @@ section#about h2 {
   flex-shrink: 0;
 }
 
-
-
 .about-text {
   flex: 1;
   font-size: 1.1em;
   color: #2c3e50;
   line-height: 1.5;
+  word-break: break-word;
 }
 
-/* Özgeçmiş Bölümü */
-section#resume {
-  max-width: 900px;
-  margin: 30px auto;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
-
-section#resume h2 {
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 10px;
-  color: #2c3e50;
-  font-size: 1.8em;
-  margin-bottom: 25px;
-}
-
+/* Özgeçmiş */
 section#resume h3 {
   margin-top: 30px;
   color: #34495e;
@@ -124,24 +108,7 @@ section#resume ul li {
   margin-bottom: 10px;
 }
 
-/* İletişim Bölümü */
-section#contact {
-  max-width: 900px;
-  margin: 30px auto 60px auto;
-  background: white;
-  padding: 40px 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-}
-
-section#contact h2 {
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 10px;
-  color: #2c3e50;
-  font-size: 1.8em;
-  margin-bottom: 25px;
-}
-
+/* İletişim */
 section#contact ul {
   padding-left: 20px;
 }
@@ -153,13 +120,14 @@ section#contact ul li {
 section#contact a {
   color: #3498db;
   text-decoration: none;
+  word-break: break-word;
 }
 
 section#contact a:hover {
   text-decoration: underline;
 }
 
-/* İletişim Formu */
+/* Form */
 form {
   display: flex;
   flex-direction: column;
@@ -202,19 +170,42 @@ footer {
   border-top: 2px solid #3498db;
 }
 
-/* Responsive (Mobil için) */
-@media (max-width: 700px) {
-  .about-container {
+/* Mobil Cihazlar için Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  nav ul {
     flex-direction: column;
     align-items: center;
   }
 
-  .about-img {
-    margin-bottom: 20px;
+  nav ul li {
+    margin: 5px 0;
   }
 
-  nav ul li {
-    display: block;
-    margin: 10px 0;
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .about-text {
+    font-size: 1em;
+  }
+
+  section {
+    padding: 25px 20px;
+    margin: 20px 10px;
   }
 }
